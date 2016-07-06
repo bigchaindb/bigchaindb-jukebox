@@ -6,16 +6,28 @@ const path = require('path');
 
 const webpack = require('webpack');
 const combineLoaders = require('webpack-combine-loaders');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
 const PATHS = {
-    ILP_PLUGIN: path.resolve(__dirname, 'ledger/app.js'),
+    PAYS: path.resolve(__dirname, 'ledger/app.js'),
 
     BUILD: path.resolve(__dirname, 'build'),
     BUNDLE: path.resolve(__dirname, 'bundle'),
     NODE_MODULES: path.resolve(__dirname, 'node_modules'),
 };
+
+const ENTRY = {
+    // Use one entry per app
+    pays: PATHS.PAYS
+};
+
+const ENTRY_NAMES = {
+    pays: 'Jukebox',
+};
+
 
 /** EXTERNAL DEFINITIONS INJECTED INTO APP **/
 const DEFINITIONS = {
@@ -23,7 +35,6 @@ const DEFINITIONS = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
     },
 };
-
 
 /** PLUGINS **/
 const PLUGINS = [
@@ -47,11 +58,40 @@ const PROD_PLUGINS = [
     }),
 ];
 
+const EXTRACT_CSS_PLUGIN = new ExtractTextPlugin(
+    PRODUCTION ? '[name]/styles.min.css' : '[name]/styles.css', {
+        allChunks: true
+    }
+);
+
+// Generate html files for each of the example apps specified in ENTRY
+const HTML_PLUGINS = Object.keys(ENTRY).map((entryName) => (
+    new HtmlWebpackPlugin({
+        filename: `${entryName}/index.html`,
+        title: `${entryName} - powered by BigchainDB`,
+        chunks: [entryName],
+        minify: PRODUCTION ? {
+            collapseWhitespace: true,
+            minifyJS: true,
+            removeComments: true,
+            removeRedundantAttributes: true
+        } : false,
+        template: path.resolve(__dirname, 'index.html'),
+
+        // Our own options
+        PRODUCTION: PRODUCTION
+    })
+));
+
+PLUGINS.push(...HTML_PLUGINS);
+
+if (PRODUCTION) {
+    PLUGINS.push(EXTRACT_CSS_PLUGIN);
+}
 
 if (PRODUCTION) {
     PLUGINS.push(...PROD_PLUGINS);
 }
-
 
 /** LOADERS **/
 const JS_LOADER = combineLoaders([
@@ -107,7 +147,7 @@ const LOADERS = [
 
 /** EXPORTED WEBPACK CONFIG **/
 module.exports = {
-    entry: PATHS.ILP_PLUGIN,
+    entry: ENTRY,
 
     output: {
         filename: PRODUCTION ? 'bundle.min.js' : 'bundle.js',
