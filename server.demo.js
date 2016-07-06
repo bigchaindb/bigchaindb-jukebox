@@ -26,14 +26,14 @@ if (process.env.NODE_ENV === 'demo') {
 }
 
 // Specify output location for bundled files
-config.output.publicPath = '/';
+config.output.publicPath = '/build/';
 
 // Configure server
 const compiler = webpack(config);
 
 const server = new WebpackDevServer(compiler, {
     publicPath: config.output.publicPath,
-    contentBase: '.',
+    contentBase: './demo',
     hot: true,
     noInfo: true,
     stats: { colors: true }
