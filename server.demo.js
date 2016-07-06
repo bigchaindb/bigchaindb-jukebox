@@ -33,7 +33,7 @@ const compiler = webpack(config);
 
 const server = new WebpackDevServer(compiler, {
     publicPath: config.output.publicPath,
-    contentBase: './demo',
+    contentBase: '.',
     hot: true,
     noInfo: true,
     stats: { colors: true }
