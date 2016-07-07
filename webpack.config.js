@@ -64,26 +64,6 @@ const EXTRACT_CSS_PLUGIN = new ExtractTextPlugin(
     }
 );
 
-// // Generate html files for each of the example apps specified in ENTRY
-// const HTML_PLUGINS = Object.keys(ENTRY).map((entryName) => (
-//     new HtmlWebpackPlugin({
-//         filename: `${entryName}/index.html`,
-//         title: `${entryName} - powered by BigchainDB`,
-//         chunks: [entryName],
-//         minify: PRODUCTION ? {
-//             collapseWhitespace: true,
-//             minifyJS: true,
-//             removeComments: true,
-//             removeRedundantAttributes: true
-//         } : false,
-//         template: path.resolve(__dirname, 'demo.html'),
-//
-//         // Our own options
-//         PRODUCTION: PRODUCTION
-//     })
-// ));
-//
-// PLUGINS.push(...HTML_PLUGINS);
 
 if (PRODUCTION) {
     PLUGINS.push(EXTRACT_CSS_PLUGIN);
