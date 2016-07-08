@@ -1,0 +1,101 @@
+body, html {
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    position: relative;
+    background-image: url(BG.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: block;
+    background-color: rgba(1, 114, 166, .4);
+}
+
+nav img {
+    display: block;
+    margin: auto;
+    height: 3em;
+    padding: 1.25em 0 1em 0;
+}
+
+footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 3em;
+    width: 100%;
+    background-color: white;
+
+    font-size: .9em;
+    text-align: right;
+}
+
+footer span, footer a img {
+    display: inline-block;
+    height: 40%;
+    vertical-align: middle;
+    padding-top: 1em;
+    margin-right: 1em;
+}
+
+#box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, .7);
+    padding: 1em;
+    border: 2px solid rgba(255, 255, 255, .8);
+}
+
+#playing, #idle {
+    color: white;
+    font-size: 1.2em;
+}
+
+#playing .cover, #playing .information {
+    display: inline-block;
+    float: left;
+}
+
+#playing .cover {
+    margin-right: 1em;
+}
+
+#playing .cover img {
+    height: 13em;
+}
+
+#playing .information .track .title, #playing .information .track .artist {
+   font-weight: bold;
+}
+
+#playing .information .track .title {
+   font-size: 1.8em;
+}
+
+#playing .information .track .artist {
+   font-size: 1.2em;
+}
+
+#playing .information hr {
+    color: rgba(255, 255, 255, .3);
+    margin-top: .75em;
+    margin-bottom: .75em;
+}
+
+#playing .information .track .secondary p {
+    color: rgba(255, 255, 255, .8);
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+#playing .information .track .secondary p:nth-child(2) {
+    font-size: 85%;
+}
