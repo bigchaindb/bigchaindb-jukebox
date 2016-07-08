@@ -44,3 +44,10 @@ dict_keys(['59bf7fc3-777a-4c80-8d4a-dc742a940799','821112aa-8b2e-4978-83cf-b0a1c
 # transfer a coin to the jukebox
 transfer_coin(user_vk, user_sk, '59bf7fc3-777a-4c80-8d4a-dc742a940799')
 ```
+
+## Test sending between ledgers
+In a new console run the following script
+```bash
+$ ./node_modules/.bin/babel-node scripts/send.js 
+```
+

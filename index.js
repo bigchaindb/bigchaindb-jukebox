@@ -1,5 +1,7 @@
-import Demo from './ledger/ledger_demo';
+import JukeboxServices from './ledger/services';
 import config from './ledger/config';
 
-const demo = new Demo(config);
-demo.start();
+const service = new JukeboxServices(config);
+service.start();
+
+
