@@ -15,9 +15,9 @@ Start all services
 $ python -m server.serve
 ```
 
-In console 4 start five-bells-ledger
+In console 4 start node
 ```bash
-$ rm -rfv data/*.sqlite && ./node_modules/.bin/babel-node ledger/five_bells.js
+$ npm start
 ```
 
 Point the browser to `http://localhost:8000/jukebox.html`
