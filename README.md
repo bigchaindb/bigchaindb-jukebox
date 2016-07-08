@@ -10,6 +10,12 @@ $ npm install
 $ pip install -r server/requirements.txt
 ```
 
+Make sure that rethinkdb and bigchaindb is configured and initalized
+```bash
+$ bigchaindb configure
+$ bigchaindb init
+```
+
 Start all services
 ```bash
 $ python -m server.serve
