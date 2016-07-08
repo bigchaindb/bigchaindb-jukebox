@@ -7,24 +7,12 @@ Only works with python3.4+, node v6.2.2
 Install the requirements
 ```bash
 $ npm install
-$ cd server
-$ pip install -r requirements.txt
+$ pip install -r server/requirements.txt
 ```
 
-In console 1 start bigchaindb
+Start all services
 ```bash
-$ bigchaindb start
-```
-
-In console 2 start http server
-```bash
-$ cd public
-$ python -m http.server
-```
-
-In console 3 start tornado
-```bash
-$ python -m server.tornado
+$ python -m server.serve
 ```
 
 In console 4 start five-bells-ledger
