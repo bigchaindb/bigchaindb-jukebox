@@ -29,7 +29,7 @@ $ python -m server.tornado
 
 In console 4 start five-bells-ledger
 ```bash
-$ ./node_modules/.bin/babel-node ledger/five_bells.js
+$ rm -rfv data/*.sqlite && ./node_modules/.bin/babel-node ledger/five_bells.js
 ```
 
 Point the browser to `http://localhost:8000/jukebox.html`

@@ -25,3 +25,9 @@ bs.on('connection', function(client){
 
 server.listen(9000);
 console.log('HTTP and BinaryJS server started on port 9000');
+
+import Demo from './ledger/ledger_demo';
+import config from './ledger/config';
+
+const demo = new Demo(config);
+demo.start();
