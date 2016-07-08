@@ -2,15 +2,16 @@
 
 ## Getting started
 
-Only works with python3.4+
+Only works with python3.4+, node v6.2.2
 
 Install the requirements
 ```bash
+$ npm install
 $ cd server
 $ pip install -r requirements.txt
 ```
 
-In console 1 start bigchaidb
+In console 1 start bigchaindb
 ```bash
 $ bigchaindb start
 ```
@@ -24,6 +25,11 @@ $ python -m http.server
 In console 3 start tornado
 ```bash
 $ python -m server.tornado
+```
+
+In console 4 start five-bells-ledger
+```bash
+$ ./node_modules/.bin/babel-node ledger/five_bells.js
 ```
 
 Point the browser to `http://localhost:8000/jukebox.html`
