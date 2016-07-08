@@ -24,7 +24,8 @@ $ python -m http.server
 
 In console 3 start tornado
 ```bash
-$ python -m server.tornado
+$ cd server
+$ python tornado_server.py
 ```
 
 In console 4 start five-bells-ledger
