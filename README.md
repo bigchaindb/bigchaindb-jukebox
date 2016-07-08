@@ -15,7 +15,7 @@ Start all services
 $ python -m server.serve
 ```
 
-In console 4 start node
+In a new console start node
 ```bash
 $ npm start
 ```
