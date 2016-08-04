@@ -1,4 +1,6 @@
-# Pay-As-You-Stream Platform
+# BigchainDB Jukebox
+
+The Jukebox is a pay-as-you-stream demo for mediastreams using micropayments 
 
 ## Getting started
 
